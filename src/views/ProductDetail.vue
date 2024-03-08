@@ -9,16 +9,20 @@
 
   <div class="product">
     <div class="product-image">
-      <img :src="selectedProduct.thumbnail" alt="">
+      <img :src="selectedProduct.image" alt="image">
+      
     </div>
     <div class="product-details">
-      <p>Brand: {{ selectedProduct.brand }}</p>
-      <p>Description: {{ selectedProduct.description }}</p>
+      <p>Id: {{ selectedProduct.id }}</p>
+      <p>Subject: {{ selectedProduct.subject }}</p>
+      <p>Location: {{ selectedProduct.location }}</p>
+      <p>Space: {{ selectedProduct.spaces }}</p>
       <h2>Price: ${{ selectedProduct.price }}</h2>
       <v-btn
           variant="elevated"
           color="indigo-lighten-3"
           @click="addToCart"
+         :disabled="selectedProduct.spaces === 0"
       >Add to cart</v-btn>
     </div>
   </div>

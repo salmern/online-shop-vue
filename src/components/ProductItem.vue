@@ -4,25 +4,31 @@
         class="product"
     >
       <v-img
-          :src="props.productData.thumbnail"
+          :src="props.productData.image"
           height="200px"
           cover
       />
-
-      <v-card-title>
+<br>
+      <!-- <v-card-title>
         {{ props.productData.brand }}
-      </v-card-title>
+      </v-card-title> -->
 
+      <v-card-subtitle>
+        Spaces {{ props.productData.spaces }}
+      </v-card-subtitle>
+<br>
       <v-card-subtitle>
         $ {{ props.productData.price }}
       </v-card-subtitle>
 
-      <v-card-text>
-        {{ props.productData.description }}
-      </v-card-text>
+     
+    
 
       <v-card-actions>
-        <v-btn @click="goToProductPage(props.productData.id)">
+        <v-btn @click="goToProductPage(props.productData.id)
+        
+        
+        " :disabled="productData.spaces === 0">
           Add to cart
         </v-btn>
       </v-card-actions>

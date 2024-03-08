@@ -1,28 +1,29 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
+import { lessons } from "./lessons";
 
-
-export const productsStore = defineStore('products', {
+export const productsStore = defineStore("products", {
   state: () => ({
     products: [],
-      cart: []
+    cart: [],
   }),
 
   actions: {
     fetchProductsFromDB() {
-      fetch('https://dummyjson.com/products')
-          .then(res => res.json())
-          .then(json => {
-            this.products = json.products;
-          })
+      // fetch('https://dummyjson.com/products')
+      //     .then(res => res.json())
+      //     .then(json => {
+      //       this.products = json.products;
+      //     })
+      this.products = lessons;
     },
 
     addToCart(product) {
-      this.cart.push(product)
+      this.cart.push(product);
     },
 
     removeFromCart(id) {
-      console.log('>>>>> ID', id)
-      this.cart = this.cart.filter((item) => item.id !== id)
-    }
-  }
-})
+      console.log(">>>>> ID", id);
+      this.cart = this.cart.filter((item) => item.id !== id);
+    },
+  },
+});

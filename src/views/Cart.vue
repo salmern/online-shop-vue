@@ -4,41 +4,87 @@
     <h1>Empty Cart ...</h1>
   </div>
   <div class="cart-items" v-else>
-    <div
-        class="cart-item"
-        v-for="item in store.cart"
-        :key="item.id"
-    >
+    <div class="cart-item" v-for="item in store.cart" :key="item.id">
       <div class="item-details">
-        <img :src="item.thumbnail" alt="">
-        <span>Brand: {{ item.brand }}</span>
-        <span>Category: {{ item.category }}</span>
-        <span>Price: ${{ item.price }}</span>
+        <!-- <img :src="item.thumbnail" alt=""> -->
+        <img :src="item.image" alt="image" />
+        <!-- <span>Course_id: {{ item.id }}</span> -->
+        <span>Subject: {{ item.subject }}</span>
+        <span>Location: {{ item.location }}</span>
+        <span>Price: {{ item.price }}</span>
+        <span>Space: {{ item.spaces }}</span>
         <button @click="removeFromCart(item.id)">Remove</button>
       </div>
+    </div>
+
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        style="width: 300px;"
+        v-model="name"
+        placeholder="Name"
+        @input="validateCheckout"
+      /><br>
+      <input
+        type="text"
+        class="form-control"
+        style="width: 300px;"
+        v-model="phone"
+        placeholder="Phone"
+        @input="validateCheckout"
+      />
+      <br>
+      <button
+        class="btn btn-primary"
+        @click="checkout"
+        :disabled="!isFormValid"
+      >
+        Checkout
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-  import { defineComponent } from "vue";
-  export default defineComponent({
-    name: 'CartView'
-  })
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: "CartView",
+});
 </script>
 
 <script setup>
-  import { productsStore } from "@/stores/products";
-  import { useRouter } from "vue-router";
+import { computed, ref } from "vue";
+import { productsStore } from "@/stores/products";
+import { useRouter } from "vue-router";
 
-  const router = useRouter()
+const router = useRouter();
 
-  const store = productsStore()
+const store = productsStore();
 
-  const removeFromCart = (id) => {
-    store.removeFromCart(id)
+const removeFromCart = (id) => {
+  store.removeFromCart(id);
+};
+
+const name = ref("");
+const phone = ref("");
+const isFormValid = ref(false);
+
+const validateCheckout = () => {
+  const nameRegex = /^[a-zA-Z]+$/;
+  const phoneRegex = /^[0-9]+$/;
+
+  isFormValid.value =
+    nameRegex.test(name.value) && phoneRegex.test(phone.value);
+};
+
+const checkout = () => {
+  if (isFormValid.value) {
+    alert("Order submitted successfully!");
+  } else {
+    alert("Please provide valid name and phone number.");
   }
-
+};
 </script>
 
 <style scoped>
