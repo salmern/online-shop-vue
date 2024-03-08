@@ -6,9 +6,7 @@
   <div class="cart-items" v-else>
     <div class="cart-item" v-for="item in store.cart" :key="item.id">
       <div class="item-details">
-        <!-- <img :src="item.thumbnail" alt=""> -->
         <img :src="item.image" alt="image" />
-        <!-- <span>Course_id: {{ item.id }}</span> -->
         <span>Subject: {{ item.subject }}</span>
         <span>Location: {{ item.location }}</span>
         <span>Price: {{ item.price }}</span>
