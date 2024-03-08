@@ -1,13 +1,11 @@
 <template>
   <header>
-
     <v-toolbar title="Bello Rufa'i Booking Cart">
       <v-btn
-          @click="router.push({ name: 'CartView' })"
-          color="primary"
-          variant="elevated"
-
-      >Items in Cart: {{ store.cart.length }}
+        @click="router.push({ name: 'CartView' })"
+        color="primary"
+        variant="elevated"
+        >Items in Cart: {{ store.cart.length }}
       </v-btn>
     </v-toolbar>
   </header>
@@ -17,13 +15,12 @@
 </template>
 
 <script setup>
-  import { useRouter } from "vue-router";
-  import { productsStore } from "@/stores/products";
+import { useRouter } from "vue-router";
+import { productsStore } from "@/stores/products";
 
-  const router = useRouter()
-  const store = productsStore()
+const router = useRouter();
+const store = productsStore();
 </script>
-
 
 <style scoped>
 .cart-items {

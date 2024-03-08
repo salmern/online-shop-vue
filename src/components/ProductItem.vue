@@ -1,4 +1,3 @@
-
 <template>
   <v-sheet class="ma-2 pa-2">
     <v-card class="product">
