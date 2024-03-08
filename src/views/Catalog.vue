@@ -14,7 +14,7 @@
       >
         <div class="product-card">
           <product-item
-          
+
             :product-data="product"
             @item-clicked="goToProductPage"
           />
@@ -50,7 +50,7 @@ const goToProductPage = (id) => {
 };
 
 onMounted(async () => {
-  await store.fetchProductsFromDB();
+  await store.fetchLessons();
 });
 </script>
 
