@@ -21,20 +21,20 @@
       <input
         type="text"
         class="form-control"
-        style="width: 300px;"
+        style="width: 300px"
         v-model="name"
         placeholder="Name"
         @input="validateCheckout"
-      /><br>
+      /><br />
       <input
         type="text"
         class="form-control"
-        style="width: 300px;"
+        style="width: 300px"
         v-model="phone"
         placeholder="Phone"
         @input="validateCheckout"
       />
-      <br>
+      <br />
       <button
         class="btn btn-primary"
         @click="checkout"
@@ -65,7 +65,6 @@ const store = productsStore();
 const removeFromCart = (id) => {
   store.removeFromCart(id);
 };
-
 const name = ref("");
 const phone = ref("");
 const isFormValid = ref(false);
