@@ -11,10 +11,7 @@
         :key="product.id"
         cols="12"
         sm="4"
-       
-
       >
-
         <div class="product-card">
           <product-item
             :product-data="product"
