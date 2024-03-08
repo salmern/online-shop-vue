@@ -14,6 +14,7 @@
       >
         <div class="product-card">
           <product-item
+          
             :product-data="product"
             @item-clicked="goToProductPage"
           />
