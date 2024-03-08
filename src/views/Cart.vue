@@ -77,7 +77,7 @@ const validateCheckout = () => {
 
 const checkout = () => {
   if (isFormValid.value) {
-    alert("Order submitted successfully Enjoy!!");
+    alert("Order submitted successfully Enjoy!!!");
   } else {
     alert("Please provide valid name and phone number.");
   }
